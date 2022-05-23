@@ -41,18 +41,18 @@ const HeroItems = styled.div`
 const Header = styled.div`
   font-size: clamp(2.5rem, 10vw, 5rem);
   letter-spacing: 3px;
-  color: #E0FBFC;
+  color: #e0fbfc;
 `;
 const CatchLine = styled.div`
   font-size: clamp(1.5rem, 5vw, 2.5rem);
-  color: #E0FBFC;
+  color: #e0fbfc;
   margin-bottom: 22px;
 `;
 const BookButton = styled.button`
   font-size: 1.4rem;
   padding: 5px;
   border: none;
-  background: #C2DFE3;
+  background: #c2dfe3;
   color: #253237;
   transition: 0.2s ease-out;
   width: 100px;
