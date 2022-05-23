@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import standard from "./images/standardvan.png";
 import man from "./images/man.png";
+import { vanSizes } from "./Data";
+import standardVan from "./images/standardvan.png";
 
 const Sizes = () => {
   return (
@@ -16,87 +17,38 @@ const Sizes = () => {
             helpers. So whatever you're moving, from a single box to a whole
             house, we're here to help.
           </Description>
-          <Van>
-            <VanHeader>Standard</VanHeader>
-            <VanImage>
-              <img src={standard} alt='standard' />
-            </VanImage>
-            <VanText>
-              Load dimensions: 2.4m x 1.4m x 1.4m
-              <br />
-              Load volume: 5m3
-              <br />
-              What fits: Two sofas or 25 large boxes
-            </VanText>
-            <VanCost>
-              <VanIcon>
-                <img src={man} alt='man' />
-              </VanIcon>
-              <VanHour>£30/hr</VanHour>
-            </VanCost>
-            <VanCost>
-              <VanIcon>
-                <img src={man} alt='man' />
-                <img src={man} alt='man' />
-              </VanIcon>
-              <VanHour>£45/hr</VanHour>
-            </VanCost>
-            <VanMilage>Mileage: 30p/mile</VanMilage>
-          </Van>
-          <Van>
-            <VanHeader>Standard</VanHeader>
-            <VanImage>
-              <img src={standard} alt='standard' />
-            </VanImage>
-            <VanText>
-              Load dimensions: 2.4m x 1.4m x 1.4m
-              <br />
-              Load volume: 5m3
-              <br />
-              What fits: Two sofas or 25 large boxes
-            </VanText>
-            <VanCost>
-              <VanIcon>
-                <img src={man} alt='man' />
-              </VanIcon>
-              <VanHour>£30/hr</VanHour>
-            </VanCost>
-            <VanCost>
-              <VanIcon>
-                <img src={man} alt='man' />
-                <img src={man} alt='man' />
-              </VanIcon>
-              <VanHour>£45/hr</VanHour>
-            </VanCost>
-            <VanMilage>Mileage: 30p/mile</VanMilage>
-          </Van>
-          <Van>
-            <VanHeader>Standard</VanHeader>
-            <VanImage>
-              <img src={standard} alt='standard' />
-            </VanImage>
-            <VanText>
-              Load dimensions: 2.4m x 1.4m x 1.4m
-              <br />
-              Load volume: 5m3
-              <br />
-              What fits: Two sofas or 25 large boxes
-            </VanText>
-            <VanCost>
-              <VanIcon>
-                <img src={man} alt='man' />
-              </VanIcon>
-              <VanHour>£30/hr</VanHour>
-            </VanCost>
-            <VanCost>
-              <VanIcon>
-                <img src={man} alt='man' />
-                <img src={man} alt='man' />
-              </VanIcon>
-              <VanHour>£45/hr</VanHour>
-            </VanCost>
-            <VanMilage>Mileage: 30p/mile</VanMilage>
-          </Van>
+          {vanSizes.map((vans) => {
+            return (
+              <Van>
+                <VanHeader>{vans.name}</VanHeader>
+                <VanImage>
+                  <img src={standardVan} alt='standard' />
+                </VanImage>
+                <VanText>
+                  Load dimensions: {vans.dimensions}
+                  <br />
+                  Load volume: {vans.volume}
+                  <br />
+                  What fits: {vans.whatFits}
+                </VanText>
+                <VanCost>
+                  <VanIcon>
+                    <img src={man} alt='man' />
+                  </VanIcon>
+                  <VanHour>{vans.priceOne}</VanHour>
+                </VanCost>
+                <VanCost>
+                  <VanIcon>
+                    <img src={man} alt='man' />
+                    <img src={man} alt='man' />
+                  </VanIcon>
+                  <VanHour>{vans.priceTwo}</VanHour>
+                </VanCost>
+                <VanMilage>Mileage: {vans.mileage}</VanMilage>
+              </Van>
+            );
+          })}
+
           <Description>
             For larger moves we are also able to offer combinations of multiple
             vans and helpers based on the pricing above. Give us a call to
@@ -128,7 +80,7 @@ export default Sizes;
 const Container = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #E0FBFC;
+  background-color: #e0fbfc;
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -156,13 +108,14 @@ const VanBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1200px;
 `;
 const Van = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
   margin: 5px;
-  background-color: #C2DFE3;
+  background-color: #c2dfe3;
   border-radius: 5%;
   width: 300px;
 `;
@@ -172,6 +125,7 @@ const VanHeader = styled.div`
 `;
 const VanImage = styled.div``;
 const VanText = styled.div`
+  min-height: 100px;
   padding-bottom: 20px;
 `;
 const VanCost = styled.div`
